@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Stars Academy — Investment Proposal</title>
+    <meta name="description" content="Investment-grade business proposal for Future Stars Academy - Building Africa's Next Generation of Innovators">
+    <meta property="og:title" content="Future Stars Academy — Investment Proposal">
+    <meta property="og:description" content="Investment-grade business proposal for Future Stars Academy - Building Africa's Next Generation of Innovators">
+    <meta property="og:type" content="website">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f5;
+            padding-top: 60px;
+        }
+        #nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: #1a237e; color: #fff; padding: 12px 24px;
+            display: flex; align-items: center; gap: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        #nav h1 { font-size: 18px; font-weight: 600; flex: 1; }
+        #nav a { color: #90caf9; text-decoration: none; font-size: 13px; }
+        #nav a:hover { text-decoration: underline; }
+        #toc-toggle {
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            color: #fff; padding: 6px 14px; border-radius: 4px; cursor: pointer;
+            font-size: 13px;
+        }
+        #toc-toggle:hover { background: rgba(255,255,255,0.2); }
+        #container { display: flex; max-width: 1200px; margin: 0 auto; position: relative; }
+        #sidebar {
+            width: 280px; flex-shrink: 0; position: fixed; top: 60px; left: 0;
+            height: calc(100vh - 60px); overflow-y: auto;
+            background: #fff; border-right: 1px solid #e0e0e0;
+            padding: 20px 0; display: none; z-index: 999;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+        }
+        #sidebar.show { display: block; }
+        #sidebar h3 { padding: 8px 20px; font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        #sidebar a {
+            display: block; padding: 6px 20px; color: #333; text-decoration: none;
+            font-size: 14px; border-left: 3px solid transparent;
+        }
+        #sidebar a:hover { background: #f5f5f5; border-left-color: #1a237e; color: #1a237e; }
+        #sidebar .app-link { font-size: 12px; color: #666; padding-left: 36px; }
+        #sidebar .app-link:hover { border-left-color: #4caf50; color: #2e7d32; }
+        #content {
+            flex: 1; padding: 40px 60px; max-width: 900px; margin: 0 auto;
+            background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            border-radius: 8px; min-height: calc(100vh - 80px);
+        }
+        @media (max-width: 900px) {
+            #content { padding: 24px 20px; margin: 0 8px; }
+            #nav h1 { font-size: 14px; }
+            #nav { padding: 12px 16px; gap: 10px; }
+        }
+        #content h1 { font-size: 32px; color: #1a237e; margin: 40px 0 16px; padding-bottom: 12px; border-bottom: 3px solid #1a237e; }
+        #content h2 { font-size: 24px; color: #283593; margin: 32px 0 12px; }
+        #content h3 { font-size: 20px; color: #3949ab; margin: 24px 0 10px; }
+        #content h4 { font-size: 16px; color: #5c6bc0; margin: 16px 0 8px; }
+        #content p { margin: 12px 0; }
+        #content ul, #content ol { margin: 12px 0; padding-left: 24px; }
+        #content li { margin: 6px 0; }
+        #content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        #content th, #content td { border: 1px solid #e0e0e0; padding: 10px 14px; text-align: left; }
+        #content th { background: #e8eaf6; font-weight: 600; color: #1a237e; }
+        #content tr:nth-child(even) { background: #fafafa; }
+        #content tr:hover { background: #f5f5f5; }
+        #content blockquote {
+            border-left: 4px solid #1a237e; background: #f5f5f5; padding: 12px 20px;
+            margin: 16px 0; border-radius: 0 4px 4px 0;
+        }
+        #content strong { color: #1a237e; }
+        #content hr { border: none; border-top: 2px solid #e0e0e0; margin: 32px 0; }
+        #content code { background: #f5f5f5; padding: 2px 8px; border-radius: 3px; font-size: 13px; color: #d32f2f; }
+        #content pre code {
+            background: #263238; color: #e0e0e0; padding: 16px 20px;
+            border-radius: 6px; display: block; overflow-x: auto;
+            line-height: 1.5; font-size: 13px;
+        }
+        .mermaid { margin: 24px 0; text-align: center; }
+        #loading {
+            display: flex; justify-content: center; align-items: center;
+            height: 60vh; flex-direction: column; gap: 16px;
+            color: #666; font-size: 16px;
+        }
+        #loading .spinner {
+            width: 40px; height: 40px; border: 4px solid #e0e0e0;
+            border-top: 4px solid #1a237e; border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .error { color: #d32f2f; padding: 20px; text-align: center; }
+        #content a { color: #1a237e; }
+        #content a:hover { text-decoration: underline; }
+        #landing {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: calc(100vh - 140px); text-align: center; padding: 40px 20px;
+        }
+        #landing h1 { font-size: 42px; margin-bottom: 8px; border: none; }
+        #landing .subtitle { font-size: 18px; color: #666; margin-bottom: 40px; }
+        #landing .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; width: 100%; max-width: 800px; margin-bottom: 40px; }
+        #landing .card { background: #f5f5f5; padding: 24px; border-radius: 8px; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+        #landing .card:hover { border-color: #1a237e; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #landing .card h3 { color: #1a237e; margin: 0 0 8px; }
+        #landing .card p { font-size: 14px; color: #666; margin: 0; }
+        #landing .card .card-badge { display: inline-block; font-size: 11px; color: #fff; background: #1a237e; padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; }
+        #landing .stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
+        #landing .stat { text-align: center; }
+        #landing .stat-value { font-size: 28px; font-weight: 700; color: #1a237e; }
+        #landing .stat-label { font-size: 13px; color: #666; }
+        #landing .btn { display: inline-block; padding: 14px 36px; background: #1a237e; color: #fff; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: 600; transition: background 0.2s; border: none; cursor: pointer; }
+        #landing .btn:hover { background: #283593; }
+        #landing .btn-secondary { background: transparent; color: #1a237e; border: 2px solid #1a237e; margin-left: 12px; }
+        #landing .btn-secondary:hover { background: #e8eaf6; }
+        @media (max-width: 600px) {
+            #landing h1 { font-size: 28px; }
+            #landing .stats { gap: 20px; }
+        }
+        @media print {
+            body { background: #fff; padding: 0; }
+            #nav, #sidebar { display: none; }
+            #content { box-shadow: none; border-radius: 0; padding: 20px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <button id="toc-toggle" onclick="toggleSidebar()">&#9776; Contents</button>
+        <h1>Future Stars Academy</h1>
+        <a href="#" onclick="window.print(); return false;" title="Print / Save as PDF">&#128424; Print</a>
+        <a href="#" onclick="showLanding(); return false;" title="Home">&#8962; Home</a>
+    </div>
+
+    <div id="container">
+        <div id="sidebar">
+            <h3>Main Proposal</h3>
+            <div id="sidebar-links"></div>
+            <h3 style="margin-top:16px;">Appendices</h3>
+            <div id="sidebar-apps"></div>
+        </div>
+        <div id="content">
+            <div id="loading"><div class="spinner"></div><span>Loading proposal...</span></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#1a237e',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#1a237e',
+                lineColor: '#1a237e',
+                secondaryColor: '#e8eaf6',
+                tertiaryColor: '#c5cae9'
+            },
+            flowchart: { useMaxWidth: true, htmlLabels: true },
+            sequence: { useMaxWidth: true, showSequenceNumbers: true }
+        });
+
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('show'); }
+
+        function showLanding() {
+            document.getElementById('sidebar').classList.remove('show');
+            document.getElementById('content').innerHTML = landingHTML;
+            window.scrollTo(0, 0);
+        }
+
+        const landingHTML = '<div id="landing">' +
+            '<h1>Future Stars Academy</h1>' +
+            '<p class="subtitle">Building Africa\'s Next Generation of Innovators</p>' +
+            '<div class="stats">' +
+            '<div class="stat"><div class="stat-value">M530,500</div><div class="stat-label">Project Value</div></div>' +
+            '<div class="stat"><div class="stat-value">M300,000</div><div class="stat-label">Funding Requested</div></div>' +
+            '<div class="stat"><div class="stat-value">270+</div><div class="stat-label">Learners by Year 3</div></div>' +
+            '<div class="stat"><div class="stat-value">30+</div><div class="stat-label">Student Businesses</div></div>' +
+            '</div>' +
+            '<div class="cards">' +
+            '<div class="card" onclick="loadProposal()"><div class="card-badge">Main Document</div><h3>Full Proposal</h3><p>Complete investment-grade proposal with 16 sections, financials, and strategic analysis.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_D_FINANCIAL_PROJECTIONS.md\',\'Financial Projections\')"><div class="card-badge">Appendix D</div><h3>Financial Projections</h3><p>3-year revenue, expenses, cash flow, breakeven analysis, and sensitivity scenarios.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_O_FIVE_YEAR_ROADMAP.md\',\'5-Year Roadmap\')"><div class="card-badge">Appendix O</div><h3>5-Year Roadmap</h3><p>Strategic growth plan from local programme to regional innovation ecosystem.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_K_24_MONTH_GANTT.md\',\'Gantt Chart\')"><div class="card-badge">Appendix K</div><h3>Implementation Plan</h3><p>24-month Gantt chart with critical path, milestones, and resource allocation.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_G_RISK_MANAGEMENT_PLAN.md\',\'Risk Management\')"><div class="card-badge">Appendix G</div><h3>Risk Management</h3><p>Comprehensive risk register, heat map, contingency plans, and business continuity.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_H_MARKETING_STRATEGY.md\',\'Marketing Strategy\')"><div class="card-badge">Appendix H</div><h3>Marketing Strategy</h3><p>Go-to-market plan, customer journey, funnel metrics, and channel tactics.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_M_CURRICULUM_FRAMEWORK.md\',\'Curriculum Framework\')"><div class="card-badge">Appendix M</div><h3>Curriculum Framework</h3><p>5-level learning pathway, 6 programme tracks, sample learner journey.</p></div>' +
+            '<div class="card" onclick="loadAppendix(\'appendices/APPENDIX_N_INNOVATION_PASSPORT.md\',\'Innovation Passport\')"><div class="card-badge">Appendix N</div><h3>Innovation Passport</h3><p>Digital credentialing system with 73 badges and blockchain verification.</p></div>' +
+            '</div>' +
+            '<p style="margin-bottom:24px;font-size:14px;color:#666;"><strong>16 appendices</strong> available via the Contents menu</p>' +
+            '<div><button class="btn" onclick="loadProposal()">Read Full Proposal</button>' +
+            '<button class="btn btn-secondary" onclick="window.print()">Save as PDF</button></div>' +
+            '<p style="margin-top:40px;font-size:13px;color:#999;">Location: Teya-Teyaneng, Berea, Lesotho &bull; Prepared by Moshoeshoe Koali &amp; Halieo Matsepe &bull; July 2026</p>' +
+            '<p style="font-size:12px;color:#999;">Contacts: Halieo Matsepe &bull; Email: sydmosh@gmail.com &bull; Phone: (+266)53888037</p>' +
+            '</div>';
+
+        const appFiles = [
+            { name: 'A: Founder Profile', file: 'appendices/APPENDIX_A_FOUNDER_PROFILE.md' },
+            { name: 'B: Business Model Canvas', file: 'appendices/APPENDIX_B_BUSINESS_MODEL_CANVAS.md' },
+            { name: 'C: SWOT Analysis', file: 'appendices/APPENDIX_C_SWOT_ANALYSIS.md' },
+            { name: 'D: Financial Projections', file: 'appendices/APPENDIX_D_FINANCIAL_PROJECTIONS.md' },
+            { name: 'E: Startup Budget', file: 'appendices/APPENDIX_E_STARTUP_BUDGET.md' },
+            { name: 'F: Asset Register', file: 'appendices/APPENDIX_F_ASSET_REGISTER.md' },
+            { name: 'G: Risk Management', file: 'appendices/APPENDIX_G_RISK_MANAGEMENT_PLAN.md' },
+            { name: 'H: Marketing Strategy', file: 'appendices/APPENDIX_H_MARKETING_STRATEGY.md' },
+            { name: 'I: Operational Plan', file: 'appendices/APPENDIX_I_OPERATIONAL_PLAN.md' },
+            { name: 'J: M&E Framework', file: 'appendices/APPENDIX_J_MONITORING_EVALUATION.md' },
+            { name: 'K: Gantt Chart', file: 'appendices/APPENDIX_K_24_MONTH_GANTT.md' },
+            { name: 'L: Org Structure', file: 'appendices/APPENDIX_L_ORGANIZATIONAL_STRUCTURE.md' },
+            { name: 'M: Curriculum Framework', file: 'appendices/APPENDIX_M_CURRICULUM_FRAMEWORK.md' },
+            { name: 'N: Innovation Passport', file: 'appendices/APPENDIX_N_INNOVATION_PASSPORT.md' },
+            { name: 'O: 5-Year Roadmap', file: 'appendices/APPENDIX_O_FIVE_YEAR_ROADMAP.md' },
+            { name: 'P: Stakeholder Map', file: 'appendices/APPENDIX_P_STAKEHOLDER_ECOSYSTEM.md' }
+        ];
+
+        function buildAppSidebar() {
+            let html = '';
+            appFiles.forEach(function(a) {
+                html += '<a href="#" class="app-link" onclick="loadAppendix(\'' + a.file + '\',\'' + a.name + '\'); return false;">' + a.name + '</a>';
+            });
+            document.getElementById('sidebar-apps').innerHTML = html;
+        }
+
+        function buildSidebar(html) {
+            var tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            var headings = tmp.querySelectorAll('h1, h2');
+            var links = [];
+            headings.forEach(function(h) {
+                var text = h.textContent.trim();
+                var id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                h.id = id;
+                if (h.tagName === 'H1' && text !== 'FUTURE STARS ACADEMY' && text.indexOf('FUTURE STARS') !== 0) {
+                    links.push({ text: text, id: id, level: 1 });
+                } else if (h.tagName === 'H2' && text !== 'TABLE OF CONTENTS' && text.indexOf('Appendix') !== 0) {
+                    links.push({ text: text, id: id, level: 2 });
+                }
+            });
+            var sidebarHtml = '';
+            links.forEach(function(l) {
+                var indent = l.level === 2 ? 'style="padding-left:36px;font-size:13px;"' : '';
+                sidebarHtml += '<a href="#' + l.id + '" onclick="scrollToSection(\'' + l.id + '\')" ' + indent + '>' + l.text + '</a>';
+            });
+            document.getElementById('sidebar-links').innerHTML = sidebarHtml;
+            return tmp;
+        }
+
+        function scrollToSection(id) {
+            document.getElementById('sidebar').classList.remove('show');
+            var el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        async function loadFile(url) {
+            var resp = await fetch(url);
+            if (!resp.ok) throw new Error('Failed to load: ' + resp.status);
+            return await resp.text();
+        }
+
+        function renderMarkdown(md) {
+            var html = marked.parse(md, { breaks: true, gfm: true });
+            // convert <pre><code class="language-mermaid"> into <div class="mermaid">
+            html = html.replace(/<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g, function(match, code) {
+                var textarea = document.createElement('textarea');
+                textarea.innerHTML = code.trim();
+                var decoded = textarea.value;
+                return '<div class="mermaid">' + decoded + '</div>';
+            });
+            return html;
+        }
+
+        async function renderDiagrams() {
+            var els = document.querySelectorAll('.mermaid');
+            if (els.length === 0) return;
+            for (var i = 0; i < els.length; i++) {
+                try {
+                    els[i].removeAttribute('data-processed');
+                    await mermaid.run({ nodes: [els[i]] });
+                } catch (e) { console.warn('Diagram:', e.message); }
+            }
+        }
+
+        async function loadProposal() {
+            document.getElementById('sidebar').classList.remove('show');
+            try {
+                document.getElementById('content').innerHTML = '<div id="loading"><div class="spinner"></div><span>Loading proposal...</span></div>';
+                var md = await loadFile('FUTURE_STARS_PROPOSAL.md');
+                var rendered = renderMarkdown(md);
+                var dom = buildSidebar(rendered);
+                document.getElementById('content').innerHTML = dom.innerHTML;
+                await renderDiagrams();
+                document.querySelectorAll('#content a[href^="#"]').forEach(function(a) {
+                    a.addEventListener('click', function(e) {
+                        var href = this.getAttribute('href');
+                        if (href && href.charAt(0) === '#') {
+                            e.preventDefault();
+                            var id = href.substring(1);
+                            var el = document.getElementById(id);
+                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                window.scrollTo(0, 0);
+            } catch (e) {
+                document.getElementById('content').innerHTML = '<div class="error">Error: ' + e.message + '</div>';
+            }
+        }
+
+        async function loadAppendix(file, name) {
+            document.getElementById('sidebar').classList.remove('show');
+            try {
+                document.getElementById('content').innerHTML = '<div id="loading"><div class="spinner"></div><span>Loading ' + name + '...</span></div>';
+                var md = await loadFile(file);
+                document.getElementById('content').innerHTML = renderMarkdown(md);
+                await renderDiagrams();
+                window.scrollTo(0, 0);
+            } catch (e) {
+                document.getElementById('content').innerHTML = '<div class="error">Error loading: ' + e.message + '</div>';
+            }
+        }
+
+        function init() {
+            buildAppSidebar();
+            showLanding();
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>

@@ -4,7 +4,9 @@
   "description": "Future Stars Academy — Investment-Grade Business Proposal",
   "scripts": {
     "dev": "npx serve .",
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "build": "mkdir -p dist/appendices && cp index.html dist/ && cp appendices/*.md dist/appendices/",
+    "deploy": "npm run build && npx wrangler deploy"
   },
   "keywords": ["future-stars", "academy", "proposal", "lesotho", "education"],
   "author": "Moshoeshoe Koali",
