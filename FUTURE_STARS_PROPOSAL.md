@@ -867,10 +867,10 @@ flowchart TB
 
 ---
 
-**Contact:** Moshoeshoe Koali
-**Email:** [To be inserted]
-**Phone:** [To be inserted]
-**Location:** Maseru, Lesotho
+**Contact:** Halieo Matsepe
+**Email:**   sydmosh@gmail.com
+**Phone:**  +266 53888037
+**Location:** Teya-Teyaneng, Berea , Lesotho
 
 ---
 
